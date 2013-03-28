@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moxie>
+	<style id="button" width="20" height="25" top="0" />
+	<style id="play_state" background="20 25" />
+	<style id="pause_state" background="0 25" />
+	<style id="volume_up_state" background="20 50" />
+	<style id="volume_down_state" background="0 50" />
+	<style id="fullscreen_state" background="0 100" />
+	<style id="normalscreen_state" background="20 100" />
+	<style id="text" font="Verdana" size="11" color="#FFFFFF" bold="true" top="3" selectable="false" />
+	
+	<mode id="normal">	
+		<group action="controls" width="100%" height="25" background="0 0" repeat="true" left="0" bottom="25">
+			<button style="button" action="play" left="10">
+				<up style="play_state" />
+				<over style="play_state" />
+				<down style="play_state" />
+				<hittest style="play_state" />
+			</button>
+			<button style="button" action="pause" left="10" visible="false">
+				<up style="pause_state" />
+				<over style="pause_state" />
+				<down style="pause_state" />
+				<hittest style="pause_state" />
+			</button>
+			
+			<progressbar action="progressbar" width="-250" height="9" background="#000000" top="8" left="105">
+				<bar action="progress" background="#FFFFFF" />
+				<bar action="buffer" background="#CCCCCC" />
+			</progressbar>
+			
+			<button style="button" action="volumeup" right="55">
+				<up style="volume_up_state" />
+				<over style="volume_up_state" />
+				<down style="volume_up_state" />
+				<hittest style="volume_up_state" />
+			</button>
+			
+			<button style="button" action="volumedown" top="1" right="54" visible="false">
+				<up style="volume_down_state" />
+				<over style="volume_down_state" />
+				<down style="volume_down_state" />
+				<hittest style="volume_down_state" />
+			</button>
+			
+			<button style="button" action="fullscreen" right="30">
+				<up style="fullscreen_state" />
+				<over style="fullscreen_state" />
+				<down style="fullscreen_state" />
+				<hittest style="fullscreen_state" />
+			</button>
+			
+			<text action="timeelapsed" style="text" left="40" width="60" align="right" />
+			<text action="timeleft" style="text" right="125" width="65" />
+		</group>
+	
+		<spinner action="loading" background="0 130" top="middle" left="center" width="48" height="49" speed="50" />
+	</mode>
+	
+	<mode id="fullscreen">	
+		<group action="controls" width="440" height="59" background="0 190" repeat="true" left="center" bottom="140" radius="30">
+			<button style="button" action="play" left="center" top="7">
+				<up style="play_state" />
+				<over style="play_state" />
+				<down style="play_state" />
+				<hittest style="play_state" />
+			</button>
+			<button style="button" action="pause" left="center" visible="false" top="7">
+				<up style="pause_state" />
+				<over style="pause_state" />
+				<down style="pause_state" />
+				<hittest style="pause_state" />
+			</button>
+			
+			<progressbar action="progressbar" width="285" height="9" background="#000000" top="40" left="center">
+				<bar action="progress" background="#FFFFFF" />
+				<bar action="buffer" background="#CCCCCC" />
+			</progressbar>
+			
+			<button style="button" action="volumedown" left="8" top="8">
+				<up style="volume_down_state" />
+				<over style="volume_down_state" />
+				<down style="volume_down_state" />
+				<hittest style="volume_down_state" />
+			</button>
+			
+			<button style="button" action="volumeup" left="82" top="8">
+				<up style="volume_up_state" />
+				<over style="volume_up_state" />
+				<down style="volume_up_state" />
+				<hittest style="volume_up_state" />
+			</button>
+			
+			<button style="button" action="normscreen" top="5" right="35">
+				<up style="normalscreen_state" />
+				<over style="normalscreen_state" />
+				<down style="normalscreen_state" />
+				<hittest style="normalscreen_state" />
+			</button>
+			
+			<slider action="volumeslider" top="16" left="25">
+				<bar action="volumebar" height="8" width="50" background="#000000" radius="10" />
+				<handle action="volumelevel" width="8" height="8" background="29 83" />
+			</slider>
+			
+			<text action="timeelapsed" style="text" left="10" width="60" top="35" />
+			<text action="timeleft" style="text" right="75" width="65" top="35" align="right" />
+		</group>
+	
+		<spinner action="loading" background="0 130" top="middle" left="center" width="48" height="49" speed="50" />
+	</mode>
+</moxie>
