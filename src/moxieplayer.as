@@ -163,7 +163,7 @@ package
 				poster = event.target.loader.content;
 				showPoster();
 			});
-			loader.load(new URLRequest('poster.jpg')); 
+			loader.load(new URLRequest(params['poster'])); 
 		}
 		
 		
