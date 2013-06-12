@@ -1,7 +1,7 @@
 # Build and Release Folders
 bin/
 bin-debug/
-bin-release/
+bin-release/history
 html-template/
 
 # Other files and folders
