@@ -22,7 +22,7 @@ package
 	import flash.ui.Mouse;
 	import flash.utils.ByteArray;
 	import flash.utils.setTimeout;
-		
+	
 	import mxi.Utils;
 	import mxi.player.Controls;
 	import mxi.player.ControlsEvent;
@@ -57,16 +57,17 @@ package
 		public function moxieplayer()
 		{	
 			// use only FlashVars, ignore QueryString
-			var url:String, urlParts:Object, query:Object;
+			var url:String, urlParts:Object, pos:int, query:Object;
 			
 			params = root.loaderInfo.parameters;
-			urlParts = Utils.parseUrl(root.loaderInfo.url);
-			query = Utils.parseStr(urlParts['query']);
-			
-			for (var key:String in params) {	
-				params[key] = Utils.trim(params[key]);	
-				if (params[key] == query[key]) {
-					delete params[key];
+			pos = root.loaderInfo.url.indexOf('?');
+			if (pos !== -1) {
+				query = Utils.parseStr(root.loaderInfo.url.substr(pos + 1));		
+				
+				for (var key:String in params) {	
+					if (query.hasOwnProperty(Utils.trim(key))) {
+						delete params[key];
+					}
 				}
 			}
 			
