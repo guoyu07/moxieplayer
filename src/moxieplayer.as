@@ -134,9 +134,6 @@ package
 			// preload poster
 			preloadPoster();
 			
-			// draw and activate player controls
-			activateControls('normal');
-			
 			// initialize video stream
 			net = new NetConnection;
 			net.connect(null);
@@ -145,6 +142,9 @@ package
 			stream.bufferTime = 10;
 			video = new Video;
 			video.attachNetStream(stream);
+			
+			// draw and activate player controls
+			activateControls('normal');
 			
 			addEventListeners();					
 		}
