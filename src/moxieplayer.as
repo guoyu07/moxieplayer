@@ -56,21 +56,15 @@ package
 		
 		public function moxieplayer()
 		{	
-			// use only FlashVars, ignore QueryString
-			var url:String, urlParts:Object, pos:int, query:Object;
+			var url:String = root.loaderInfo.url;				
+			var pos:int = url.indexOf('?');
 			
 			params = root.loaderInfo.parameters;
-			pos = root.loaderInfo.url.indexOf('?');
-			if (pos !== -1) {
-				query = Utils.parseStr(root.loaderInfo.url.substr(pos + 1));		
-				
-				for (var key:String in params) {	
-					if (query.hasOwnProperty(Utils.trim(key))) {
-						delete params[key];
-					}
-				}
-			}
 			
+			if (pos !== -1 && !/^\?[\d\.ab]+$/.test(url.substr(pos))) {
+				return; // we do not allow anything from query sring, except the version (for caching purposes)
+			}
+						
 			stage.align = StageAlign.TOP_LEFT;
 			stage.showDefaultContextMenu = false;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
